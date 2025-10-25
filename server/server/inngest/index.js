@@ -43,12 +43,12 @@ const syncUserUpdation = inngest.createFunction(
 
          console.log(`Successfully updated user ${id} in database.`);
         
-        const updateUserData={
+        const updatedUserData={
             email:email_addresses[0].email_address,
-            full_name: first_name + " "+last_name,
+            full_name: first_name + ' ' + last_name,
             profile_picture: image_url
         }
-        await User.findByIdAndUpdate(id,updateUserData)
+        await User.findByIdAndUpdate(id,updatedUserData)
 })
 
 
