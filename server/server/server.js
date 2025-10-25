@@ -8,6 +8,7 @@ const { LeetCode } = leetcodeApi;      // 2. Get the LeetCode class from it
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import connectDB from './configs/db.js';
 import {inngest,functions} from './inngest/index.js'; // Ensure Inngest is initialized
+import {serve} from 'inngest/express';
 
 
 
