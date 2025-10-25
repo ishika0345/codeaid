@@ -1,0 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mozilla+Text:wght@200..700&family=Outfit:wght@100..900&family=Passions+Conflict&family=Smooch+Sans:wght@100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+*{
+
+   font-family: "Host Grotesk", sans-serif;
+}
+.logos{
+   font-family: "Montserrat", sans-serif;
+}
+.logoss{
+ font-family: "Caveat", cursive; 
+}
+.no-scrollbar::-webkit-scrollbar {
+   display: none;
+}
