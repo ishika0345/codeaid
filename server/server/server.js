@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import 'dotenv/config'; // This loads the .env file
+import 'dotenv/config'; 
 import axios from 'axios';
 import * as cheerio from 'cheerio'; // Correct
 import leetcodeApi from 'leetcode-api'; // 1. Import the whole module
@@ -13,6 +13,7 @@ import {serve} from 'inngest/express';
 
 
 const app = express();
+
 await connectDB();
 
 // Middleware
