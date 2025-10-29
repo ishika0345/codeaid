@@ -9,6 +9,8 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import connectDB from './configs/db.js';
 import {inngest,functions} from './inngest/index.js'; // Ensure Inngest is initialized
 import {serve} from 'inngest/express';
+import { clerkMiddleware } from '@clerk/express'
+import userRouter from './routes/userRoutes.js';
 
 
 
@@ -19,9 +21,11 @@ await connectDB();
 // Middleware
 app.use(cors()); // Allow requests from your React app
 app.use(express.json()); // Allow server to read JSON from requests
+app.use(clerkMiddleware())
 
 app.get('/',(req,res)=>res.send('Server is running'))
 app.use('/api/inngest', serve({ client: inngest, functions }));
+app.use('/api/user',userRouter )
 
 const PORT = process.env.PORT || 4000;
 

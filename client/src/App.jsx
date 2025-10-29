@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Login from './components/pages/Login'
 import Feed from './components/pages/Feed'
@@ -8,12 +8,20 @@ import Connections from './components/pages/Connections'
 import Discover from './components/pages/Discover'
 import Profile from './components/pages/Profile'
 import CreatePost from './components/pages/CreatePost'
-import { useUser } from '@clerk/clerk-react'
+import { useUser, useAuth } from '@clerk/clerk-react'
 import Layout from './components/pages/Layout'
 import {Toaster} from 'react-hot-toast'
 
 const App = () => {
   const {user} = useUser()
+  const {getToken} = useAuth()
+
+useEffect(()=>{
+   if(user){
+      getToken().then((token)=>console.log(token))
+   }
+},[user])
+
   return (
    <>
    <Toaster/>

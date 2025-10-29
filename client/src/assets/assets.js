@@ -76,7 +76,7 @@ export const dummyStoriesData = [
         "_id": "688340046e4b42b685068a73",
         "user": dummyUserData,
         "content": "",
-        "media_url": "https://miro.medium.com/v2/resize:fit:1400/1*187ivsuCI98pJNqbN5vkVA.gif",
+        "media_url": "https://i.pinimg.com/originals/c5/e7/0b/c5e70bb90268c2720575da265f16d1cf.gif",
         "media_type": "image",
         "background_color": "#4f46e5",
         "createdAt": "2025-07-25T08:27:48.134Z",
