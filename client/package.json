@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.47.0",
+    "@reduxjs/toolkit": "^2.9.2",
     "@tailwindcss/vite": "^4.1.13",
-    "axios": "^1.12.2",
+    "axios": "^1.13.1",
     "date-fns": "^4.1.0",
     "lucide-react": "^0.544.0",
     "moment": "^2.30.1",
@@ -23,6 +24,7 @@
     "react-hot-toast": "^2.6.0",
     "react-icons": "^5.5.0",
     "react-modal": "^3.16.3",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.9.1",
     "tailwindcss": "^4.1.13",
     "zego-express-engine-webrtc": "^3.10.0",
