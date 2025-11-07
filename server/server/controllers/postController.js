@@ -74,12 +74,12 @@ export const likePost = async (req,res)=>{
        if(post.likes_count.includes(userId)){
         post.likes_count = post.likes_count.filter(user =>user!==userId)
         await post.save()
-        res.json({success:true,message:'Post not Bookmarked'})
+        res.json({success:true,message:'Bookmarked removed'})
        }
        else{
         post.likes_count.push(userId)
         await post.save()
-        res.json({success:true,message:'Post Bookmarked'})
+        res.json({success:true,message:'Bookmarked successfully'})
        }
     }
     catch(error){

@@ -6,15 +6,33 @@ import PostCard from '../PostCard'
 import NotesSection from './NotesSection'
 import AiVoiceAssistant from './AiVoiceAssistant'
 import RecentMessages from '../RecentMessages'
+import { useAuth } from '@clerk/clerk-react'
+import api from '../../api/axios'
+import toast from 'react-hot-toast'
 
 const Feed = () => {
   const [isAssistantOpen, setIsAssistantOpen] = useState(false);
   const[feeds, setfeeds] = useState([])
   const[loading,setLoading] = useState(true)
+  const {getToken} = useAuth()
 
   const fetchFeeds =async () => {
-    setfeeds(dummyPostsData)
-    setLoading(false)
+     try{
+         setLoading(true)
+         const{data}= await api.get('/api/post/feed',{
+          headers: { Authorization:`Bearer ${await getToken()}`}
+         })
+         if(data.success){
+          setfeeds(data.posts)
+         }
+         else{
+          toast.error(data.message)
+         }
+     }
+     catch(error){
+             toast.error(error.message)
+     }
+     setLoading(false)
   }
   
   useEffect(()=>{
