@@ -23,6 +23,7 @@ await connectDB();
 
 // Middleware
 app.use(cors()); // Allow requests from your React app
+app.use(express.static('public'));
 app.use(express.json()); // Allow server to read JSON from requests
 app.use(clerkMiddleware())
 
