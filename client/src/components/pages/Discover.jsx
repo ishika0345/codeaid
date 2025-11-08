@@ -24,7 +24,7 @@ const handleSearch = async (e) =>{
      try{
         setUsers([])
         setLoading(true)
-         const { data }= await api.post('/api/user/discovers',{input},{
+         const { data }= await api.post('/api/user/discover',{input},{
           headers: {Authorization: `Bearer ${await getToken()}` }
          })
          
