@@ -3,9 +3,9 @@ import {Users, UserPlus, UserCheck,UserRoundPen, MessageSquare} from 'lucide-rea
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAuth } from '@clerk/clerk-react';
-import { fetchconnections } from '../../features/connections/connectionSlice';
 import api from '../../api/axios';
 import toast from 'react-hot-toast';
+import { fetchConnections } from '../../features/connections/connectionSlice';
 
 const Connection = () => {
    
@@ -25,15 +25,15 @@ const Connection = () => {
 
    const handleUnfollow = async(userId)=>{
     try{
-        const {data} =await api.post('/api/user/unfollow',{id:userId},{
-            headers: {Authorization: `Bearer${await getToken()}`}
+        const {data} =await api.post('/api/user/unfollow',{id: userId},{
+            headers: {Authorization: `Bearer ${await getToken()}`}
         })
         if(data.success){
             toast.success(data.message)
-            dispatch(fetchconnections(await getToken()))
+            dispatch(fetchConnections(await getToken()))
         }
         else{
-            toast(data.message)
+            toast.error(data.message)
         }
     }  catch(error){
         toast.error(error.message)
@@ -42,12 +42,12 @@ const Connection = () => {
 
      const acceptConnection = async(userId)=>{
     try{
-        const {data} =await api.post('/api/user/accept',{id:userId},{
-            headers: {Authorization: `Bearer${await getToken()}`}
+        const {data} =await api.post('/api/user/accept',{id: userId},{
+            headers: {Authorization: `Bearer ${await getToken()}`}
         })
         if(data.success){
             toast.success(data.message)
-            dispatch(fetchconnections(await getToken()))
+            dispatch(fetchConnections(await getToken()))
         }
         else{
             toast(data.message)
@@ -59,7 +59,7 @@ const Connection = () => {
 
      useEffect(()=>{
         getToken().then((token)=>{
-            dispatch(fetchconnections(token))
+            dispatch(fetchConnections(token))
         })
      },[])
 
@@ -127,7 +127,7 @@ const Connection = () => {
                         }
                           {
                             currentTab === 'Connections'&& (
-                                <button onClick={()=>navigate('/messages/${user._id}')} className='w-full p-2 text-sm rounded bg-slate-100 hover:bg-slate-200 text-slate-800 active:scale-95 transition cursor-pointer flex items-center justify-center gap-1'>
+                                <button onClick={()=>navigate(`/messages/${user._id}`)} className='w-full p-2 text-sm rounded bg-slate-100 hover:bg-slate-200 text-slate-800 active:scale-95 transition cursor-pointer flex items-center justify-center gap-1'>
                                     <MessageSquare className='w-4 h-4'/>
                                     Message
                                 </button>

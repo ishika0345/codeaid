@@ -10,7 +10,7 @@ const initialState = {
    following:[]
 }
 
-export const fetchconnections = createAsyncThunk('connections/fetchConnections',
+export const fetchConnections = createAsyncThunk('connections/fetchConnections',
     async (token)=>{
         const {data} = await api.get('/api/user/connections',{
             headers: {Authorization:`Bearer ${token}`}
@@ -26,7 +26,7 @@ const connectionsSlice = createSlice ({
 
     },
     extraReducers: (builder)=>{
-        builder.addCase(fetchconnections.fulfilled,(state,action)=>{
+        builder.addCase(fetchConnections.fulfilled,(state,action)=>{
             if(action.payload){
                 state.connections = action.payload.connections
                 state.pendingConnections = action.payload.pendingConnections

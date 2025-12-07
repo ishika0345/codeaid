@@ -36,34 +36,12 @@ const userSlice =createSlice ({
 
     },
     extraReducers: (builder)=>{
-       builder
-        // 1. PENDING: Runs when fetchUser starts
-        .addCase(fetchUser.pending, (state) => {
-            state.isLoading = true; // Set loading to true
-            state.error = null;
-        })
-        // 2. FULFILLED: Runs when the API call succeeds (HTTP 200/304)
-        .addCase(fetchUser.fulfilled, (state, action) => {
-            state.isLoading = false; // <<< 🔑 CRITICAL FIX: Set loading to false
-            state.value = action.payload;
-        })
-        // 3. REJECTED: Runs when the API call fails (network error, 4xx/5xx)
-        .addCase(fetchUser.rejected, (state, action) => {
-            state.isLoading = false; // <<< 🔑 CRITICAL FIX: Set loading to false
-            state.value = null; 
-            state.error = action.error.message;
-        })
-    
-    // --- UPDATE USER CASES ---
-        .addCase(updateUser.fulfilled, (state, action) => {
-            state.value = action.payload;
-            // No need for a loading state here unless you have a separate 'isUpdating' spinner
-        })
-        // Add updateUser.rejected case for full error handling
-        .addCase(updateUser.rejected, (state, action) => {
-             // Handle update errors here
-             state.error = action.error.message;
-        });
+       builder.addCase(fetchUser.fulfilled,(state, action)=>{
+        state.value = action.payload
+       }).addCase(updateUser.fulfilled, (state,action)=>{
+        state.value = action.payload
+       })
+        
     }
 })
 

@@ -154,7 +154,7 @@ export const unfollowUser = async (req, res)=>{
         await user.save()
 
         
-        const toUser = await User.findById(userId)
+        const toUser = await User.findById(id)
         toUser.followers = toUser.followers.filter(user=>user !== userId);
          await toUser.save()
 
@@ -243,12 +243,12 @@ const connection = await Connection.findOne({from_user_id:id,to_user_id:userId})
     return res.json({success:false, message:'Connection not found'});
    }
 
-    const user = await User.findById(id);
+    const user = await User.findById(userId);
      user.connections.push(id);
      await user.save()
      
       const toUser = await User.findById(id);
-     toUser.connections.push(id);
+     toUser.connections.push(userId);
      await toUser.save()
      
      connection.status = 'accepted';

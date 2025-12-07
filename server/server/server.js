@@ -24,8 +24,9 @@ await connectDB();
 // Middleware
 app.use(cors()); // Allow requests from your React app
 app.use(express.static('public'));
+app.use(clerkMiddleware());
 app.use(express.json()); // Allow server to read JSON from requests
-app.use(clerkMiddleware())
+
 
 app.get('/',(req,res)=>res.send('Server is running'))
 app.use('/api/inngest', serve({ client: inngest, functions }));
@@ -35,7 +36,7 @@ app.use('/api/story',storyRouter)
 app.use('/api/message',messageRouter)
 
 const PORT = process.env.PORT || 4000;
-
+console.log('Clerk Key Loaded:', process.env.CLERK_SECRET_KEY ? 'Yes' : 'No');
 // Initialize the Google Generative AI client
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });

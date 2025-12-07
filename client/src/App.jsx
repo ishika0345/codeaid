@@ -13,7 +13,7 @@ import Layout from './components/pages/Layout'
 import {Toaster} from 'react-hot-toast'
 import { fetchUser } from './features/user/userSlice.js'
 import { useDispatch } from 'react-redux'
-import { fetchconnections } from './features/connections/connectionSlice.js'
+import { fetchConnections} from './features/connections/connectionSlice.js'
 
 const App = () => {
   const {user} = useUser()
@@ -25,7 +25,7 @@ useEffect(()=>{
             if(user){
       const token = await getToken()
        dispatch(fetchUser(token))
-       dispatch(fetchconnections(token))
+       dispatch(fetchConnections(token))
    }
    }
      fetchData();

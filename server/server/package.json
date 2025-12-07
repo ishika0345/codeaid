@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon server.js",
-    "start": "node server.js",
-    "setup": "node <your-setup-script-file>.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
