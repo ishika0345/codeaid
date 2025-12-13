@@ -17,7 +17,7 @@ const UserCard = ({user}) => {
     const handleFollow =async ()=>{
         try {
           const {data} = await api.post('/api/user/follow',{id:user._id},{
-            headers: { Authorization: `Bearer${await getToken()}`}
+            headers: { Authorization: `Bearer ${await getToken()}`}
           })
           if(data.success){
             toast.success(data.message)
@@ -62,13 +62,13 @@ const UserCard = ({user}) => {
             <MapPin className='w-4 h-4'/>{user.location}
         </div>
          <div className='flex items-center gap-1 border border-gray-300 rounded-full px-3 py-1'>
-           <span>{user.followers.length}</span>Connected
+           <span>{user.followers.length}</span>Following
         </div>
       </div>
       <div className='flex mt-4 gap-2'>
         {/*follow Button*/}
         <button onClick={handleFollow} disabled={currentUser?.following.includes(user._id)} className='w-full py-2 rounded-md flex justify-center items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 active:scale-95 transition text-white cursor-pointer'>
-            <UserPlus className='w-4 h-4'/>{currentUser?.following.includes(user._id)?'Connected':'Send Request'}
+            <UserPlus className='w-4 h-4'/>{currentUser?.following.includes(user._id)?'Following':'Follow'}
         </button>
         {/*Connection Request msg/btn*/}
         <button onClick={handleConnectionRequest} className='flex items-center justify-center w-16 border text-slate-500 group rounded-md cursor-pointer active:scale-95 transition'>
