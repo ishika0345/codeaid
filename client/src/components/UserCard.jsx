@@ -36,7 +36,7 @@ const UserCard = ({user}) => {
            }
            try {
                const {data} = await api.post('/api/user/connect',{id:user._id},{
-            headers: { Authorization: `Bearer${await getToken()}`}
+            headers: { Authorization: `Bearer ${await getToken()}`}
           })
           if(data.success){
             toast.success(data.message)
