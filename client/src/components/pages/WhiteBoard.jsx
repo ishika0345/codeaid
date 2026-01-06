@@ -8,13 +8,13 @@ import { SendHorizonal } from 'lucide-react';
 
 const WhiteBoard = ({onClose}) => {
 
-  const appID = 373423457
-  const userID = "ishika1"
-  const roomID =  "123456"
-  const userName = "ishii"
+  const appID = 114878834
+  const userID = "ishika12"
+  const roomID =  "1234567"
+  const userName = "ishii1"
   const [currentTool,setCurrentTool] = useState(null)
-  const token = "04AAAAAGj2GQIADF2P4tTQopWTmYa61gCxVPjCTnsCsWtE2Twb5Yzb8vkb8IL4L5jVAKaEaGR8AKapwripIhXD6NcoPTe5rbuZzTEYzymwhNZcjdkwzstE0D6LS8TLEA5E3WD0O0K0zVtk1o3WeKEpcqh3UCHYwABf4nv+c4YjQHRr4Q16JmhBUXwfSaLHL46vi4YW6tmpXiF5QbB5UxZ8YN0Pjnzpknw9pYqGODZczMmv8SU5MSuAl1sReeSNNBBaL5U7R02e6gP8AQ=="
- const server = "wss://webliveroom373423457-api.coolzcloud.com/ws"
+  const token = "04AAAAAGlep0EADHKiW6NNV4SUR9SMBQCy4PYz3Cv6k55HTmuK5VFUgo9UXiT+79tJ7oaAN0Ro4xcm/lYYfspTKKAuItI6K4yMDZAXEW/c7VMtnIvwIZInAOgTrviB/tTHGpYvt56JYXNcuALtsITxrafG+b/ZQOwF3qCQT4kavYZ1ePlKiPUiQvCxy4FzSw1VoiidcsdumFsnnrkRtMO9OpuWwgINauxmgABmkBVrMHY3GY/Fb+b30/6S3r8cTHqAJAp/WSscM+558wE="
+ const server = "wss://webliveroom114878834-api.coolzcloud.com/ws"
 const zg = new ZegoExpressEngine(appID, server);
  const zegoSuperBoard = ZegoSuperBoardManager.getInstance();
  const initBoard = async() =>{

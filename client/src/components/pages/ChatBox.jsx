@@ -44,7 +44,7 @@ const sendMessage = async ()=>{
     image && formData.append('image', image)
 
     const {data} = await api.post('/api/message/send',formData,{
-      headers: {Authorization:`Bearer${token}`}
+      headers: {Authorization:`Bearer ${token}`}
     })
     if(data.success){
       setText('')

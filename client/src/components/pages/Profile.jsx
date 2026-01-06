@@ -4,7 +4,7 @@ import { dummyPostsData, dummyUserData } from '../../assets/assets';
 import Loading from './Loading';
 import UserProfileInfo from '../UserProfileInfo';
 import PostCard from '../PostCard';
-import { Link } from 'lucide-react';
+import { BookMarked, Link } from 'lucide-react';
 import moment from 'moment';
 import ProfileModal from '../ProfileModal';
 import { useAuth } from '@clerk/clerk-react';
@@ -19,7 +19,7 @@ const Profile = () => {
   const {profileId} = useParams()
   const [user , setUser] = useState(null)
   const[posts, setPosts] = useState([])
-  const [activeTab, setActiveTab] = useState('posts')
+  const [activeTab, setActiveTab] = useState('posts','BookMarked')
   const [ showEdit, setShowEdit] = useState(false)
 
   const fetchUser = async (profileId)=>{
@@ -76,6 +76,20 @@ const Profile = () => {
               {posts.map((post)=> <PostCard key={post._id} post={post} /> )}
             </div>
           )}
+          {/*BookMarked*/}
+{activeTab === "BookMarked" && (
+  <div className="mt-6 flex flex-col items-center gap-6">
+    {BookMarked.length > 0 ? (
+      BookMarked.map(post => (
+        <PostCard key={post._id} post={post} />
+      ))
+    ) : (
+      <p className="text-gray-500 text-sm">No bookmarked posts yet</p>
+    )}
+  </div>
+)}
+
+
         </div>
       </div>
       {/*Edit Profile Modal*/}
