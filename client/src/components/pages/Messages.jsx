@@ -14,7 +14,7 @@ const Messages = () => {
         {/*Title*/}
         <div className='mb-8'>
           <h1 className='text-3xl font-bold text-slate-800 mb-2 '>Messages</h1>
-          <p className='text-slate-600'>Talk to your friend and family</p>
+          <p className='text-slate-600'>Talk to resolve your queries</p>
 
         </div>
         {/*Connected Users*/}

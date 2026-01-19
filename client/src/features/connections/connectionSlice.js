@@ -9,6 +9,7 @@ const initialState = {
    followers:[],
    following:[]
 }
+//API call
 
 export const fetchConnections = createAsyncThunk('connections/fetchConnections',
     async (token)=>{
